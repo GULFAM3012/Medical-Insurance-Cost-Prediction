@@ -1,0 +1,7 @@
+{
+  "model_name": "Ridge regression",
+  "best_run_id": "52b36f9a17204e4f99db6f06eb2b5be1",
+  "test_rmse": 4544.334071527335,
+  "test_mae": 2804.1607653631354,
+  "test_r2": 0.8637001017755265
+}
