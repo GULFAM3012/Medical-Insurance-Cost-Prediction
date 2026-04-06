@@ -98,7 +98,5 @@ An interactive web application was built for real-time predictions.
 - EDA visualizations
 - Model performance metrics
 
-
-
 # Run the app
-streamlit run medical_insurance_app.py
+streamlit run medical_insurance_app
