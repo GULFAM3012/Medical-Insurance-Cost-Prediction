@@ -104,15 +104,21 @@ An interactive web application was built for real-time predictions.
 - EDA visualizations
 - Model performance metrics
 
-### Run Locally:
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/medical-insurance-prediction.git
-cd medical-insurance-prediction
-
-# Install dependencies
-pip install -r requirements.txt
+###  Project Structure:
+medical-insurance-prediction/
+│
+├── medical_insurance_app.py          # Streamlit application
+├── Medical Insurance Cost Prediction.ipynb  # Jupyter notebook with full analysis
+├── medical_insurance.csv             # Dataset
+├── requirements.txt                  # Python dependencies
+├── README.md                         # Project documentation
+│
+├── model/
+│   ├── best_pipeline_Ridge Regression.joblib  # Saved model
+│   ├── metrics.json                  # Model performance metrics
+│   └── label_encoder.joblib          # Fitted label encoder
+│
+└── mlruns/                           # MLflow experiment logs
 
 # Run the app
 streamlit run medical_insurance_app.py
