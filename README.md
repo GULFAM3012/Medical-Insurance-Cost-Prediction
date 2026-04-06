@@ -1,11 +1,5 @@
 # Medical-Insurance-Cost-Prediction
 
-# 🏥 Medical Insurance Cost Prediction
-
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red.svg)](https://streamlit.io/)
-[![MLflow](https://img.shields.io/badge/MLflow-2.3%2B-orange.svg)](https://mlflow.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ## 📌 Project Overview
 
@@ -104,21 +98,7 @@ An interactive web application was built for real-time predictions.
 - EDA visualizations
 - Model performance metrics
 
-###  Project Structure:
-medical-insurance-prediction/
-│
-├── medical_insurance_app.py          # Streamlit application
-├── Medical Insurance Cost Prediction.ipynb  # Jupyter notebook with full analysis
-├── medical_insurance.csv             # Dataset
-├── requirements.txt                  # Python dependencies
-├── README.md                         # Project documentation
-│
-├── model/
-│   ├── best_pipeline_Ridge Regression.joblib  # Saved model
-│   ├── metrics.json                  # Model performance metrics
-│   └── label_encoder.joblib          # Fitted label encoder
-│
-└── mlruns/                           # MLflow experiment logs
+
 
 # Run the app
 streamlit run medical_insurance_app.py
