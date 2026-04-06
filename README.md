@@ -5,7 +5,7 @@
 
 This project predicts medical insurance costs based on personal health and demographic information using Machine Learning. The model takes inputs like age, BMI, smoking status, number of children, and region to estimate annual insurance charges.
 
-**Live Demo:** [Streamlit App](#) *(Add your deployed app link here)*
+
 
 ---
 
@@ -97,6 +97,3 @@ An interactive web application was built for real-time predictions.
 - 95% confidence interval display
 - EDA visualizations
 - Model performance metrics
-
-# Run the app
-streamlit run medical_insurance_app
