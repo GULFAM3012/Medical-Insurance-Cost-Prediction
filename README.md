@@ -1,72 +1,118 @@
 # Medical-Insurance-Cost-Prediction
 
-📌 Project Overview
-This project aims to build an end-to-end regression solution for predicting individual medical insurance costs based on personal health and demographic factors. The system helps insurance companies estimate personalized premiums and enables individuals to compare and plan their medical expenses.
+# 🏥 Medical Insurance Cost Prediction
 
-The project covers the complete data science lifecycle:
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red.svg)](https://streamlit.io/)
+[![MLflow](https://img.shields.io/badge/MLflow-2.3%2B-orange.svg)](https://mlflow.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Exploratory Data Analysis (EDA) to uncover key cost drivers
+## 📌 Project Overview
 
-Feature engineering and data preprocessing
+This project predicts medical insurance costs based on personal health and demographic information using Machine Learning. The model takes inputs like age, BMI, smoking status, number of children, and region to estimate annual insurance charges.
 
-Training and evaluating multiple regression models
+**Live Demo:** [Streamlit App](#) *(Add your deployed app link here)*
 
-Experiment tracking and model registry using MLflow
+---
 
-Deployment of the best model via an interactive Streamlit web application
+## 🎯 Problem Statement
 
-🎯 Problem Statement
-Given a dataset containing information about age, gender, BMI, number of children, smoking status, and region, the goal is to predict the individual’s medical insurance charges. The challenge is to build a reliable regression model that can be used in a real‑world insurance pricing tool.
+Insurance companies need accurate cost predictions to set personalized premiums. This project analyzes historical insurance data to build a regression model that predicts medical charges for new customers based on their profile.
 
-📊 Dataset
-The dataset (medical_insurance.csv) consists of 1337 rows (after removing duplicates) and the following features:
+---
 
-Feature	Description
-age	Age of the primary beneficiary
-sex	Gender (male / female)
-bmi	Body Mass Index (kg/m²)
-children	Number of dependents covered by the insurance
-smoker	Smoking status (yes / no)
-region	Residential area (northeast, northwest, southeast, southwest)
-charges	Target – individual medical costs billed by health insurance
-🔍 Key Insights from EDA
-Smoking is the strongest predictor: smokers pay 3–4 times higher premiums than non‑smokers.
+## 📊 Dataset
 
-BMI has a moderate positive correlation with charges, especially for smokers.
+The dataset contains **1,337 records** (after cleaning) with the following features:
 
-Age also shows a positive trend: older individuals tend to have higher charges.
+| Feature | Description |
+|---------|-------------|
+| `age` | Age of the primary beneficiary |
+| `sex` | Gender (male/female) |
+| `bmi` | Body Mass Index (kg/m²) |
+| `children` | Number of dependents covered |
+| `smoker` | Smoking status (yes/no) |
+| `region` | Residential area (northeast, northwest, southeast, southwest) |
+| `charges` | **Target** - Medical insurance cost |
 
-Obese smokers (BMI > 30) have significantly higher costs than any other group.
+**Source:** Medical Insurance Dataset
 
-Gender and region have very weak correlations with charges.
+---
 
-All visualizations are included in the Streamlit app and the Jupyter notebook.
+## 🔍 Exploratory Data Analysis (EDA)
 
-⚙️ Feature Engineering
-Created bmi_category: Underweight, normal, overweight, obese.
+### Key Findings:
 
-Added interaction features:
+- **Smoking** is the strongest predictor - smokers pay **3-4x more** than non-smokers
+- **Obese smokers (BMI > 30)** have the highest insurance costs
+- **Age** shows moderate positive correlation with charges
+- **Gender** and **region** have minimal impact on costs
+- **Number of children** has negligible effect
 
-smoker_age = smoker × age
+### Visualizations Included:
+- Age vs. Charges scatter plot
+- BMI vs. Charges scatter plot  
+- Smoker vs. Charges box plot
+- Region vs. Charges box plot
 
-smoker_bmi = smoker × bmi
+---
 
-Encoded categorical variables using label encoding and one‑hot encoding.
+## ⚙️ Feature Engineering
 
-Added a binary flag obese (BMI > 30) for deeper analysis.
+Created additional features to improve model performance:
 
-🧠 Models Trained & Evaluated
-Five regression models were trained and compared:
+- `bmi_category` - Underweight, normal, overweight, obese
+- `smoker_age` - Interaction feature (smoker × age)
+- `smoker_bmi` - Interaction feature (smoker × bmi)
+- `obese` - Binary flag for BMI > 30
 
-Model	RMSE	MAE	R² Score
-Ridge Regression	4544.33	2809.45	0.8876
-Linear Regression	4550.78	2816.54	0.8873
-Lasso Regression	4550.77	2816.52	0.8873
-Random Forest	4719.19	2678.88	0.8788
-XGBoost	5004.59	2804.16	0.8637
-Ridge Regression was selected as the final model due to its lowest RMSE and highest R².
+---
 
-📈 MLflow Integration
-All experiments were logged using MLflow:
+## 🤖 Model Training
 
-Hyperparameters
+5 regression models were trained and compared:
+
+| Model | RMSE | MAE | R² Score |
+|-------|------|-----|----------|
+| **Ridge Regression** | **$4,544** | **$2,809** | **0.888** |
+| Linear Regression | $4,551 | $2,817 | 0.887 |
+| Lasso Regression | $4,551 | $2,817 | 0.887 |
+| Random Forest | $4,719 | $2,679 | 0.879 |
+| XGBoost | $5,005 | $2,804 | 0.864 |
+
+**Best Model:** Ridge Regression selected for deployment
+
+---
+
+## 📈 MLflow Integration
+
+- All experiments logged with MLflow
+- Metrics tracked: RMSE, MAE, R² Score
+- Best model registered in MLflow Model Registry
+- Model versioned and promoted to **Production** stage
+
+---
+
+## 🚀 Streamlit Web App
+
+An interactive web application was built for real-time predictions.
+
+### Features:
+- User input form for personal details
+- Real-time cost prediction
+- 95% confidence interval display
+- EDA visualizations
+- Model performance metrics
+
+### Run Locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/medical-insurance-prediction.git
+cd medical-insurance-prediction
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the app
+streamlit run medical_insurance_app.py
